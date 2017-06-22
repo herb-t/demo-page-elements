@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>content-card demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../content-card.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .centered {
+          width: 100%;
+          max-width: 960px;
+          margin: 0 auto;
+        }
+        content-card {
+          margin-bottom: 32px;
+        }
+        content-card[vertical],
+        content-card[vertical-reverse] {
+          --card-hero-max-height: 300px;
+        }
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 700;
+          color: red;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="centered">
+      <h3>basic horizontal layout</h3>
+      <demo-snippet>
+        <template>
+          <content-card image-src="https://source.unsplash.com/category/technology">
+            <div slot="content">
+              <h1>Reggy</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+              <a href="#">See More</a>
+            </div>
+          </content-card>
+        </template>
+      </demo-snippet>
+
+      <h3>reverse horizontal layout</h3>
+      <demo-snippet>
+        <template>
+          <content-card image-src="https://source.unsplash.com/category/nature" row-reverse>
+            <div slot="content">
+              <h1>Row Reverse</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+            </div>
+          </content-card>
+        </template>
+      </demo-snippet>
+
+      <h3>basic vertical layout</h3>
+      <demo-snippet>
+        <template>
+          <content-card image-src="https://source.unsplash.com/category/buildings" vertical>
+            <div slot="content">
+              <h1>Vertical</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+            </div>
+          </content-card>
+          <style>
+            content-card[vertical] {
+              --card-hero-max-height: 300px;
+            }
+          </style>
+        </template>
+      </demo-snippet>
+
+      <h3>reverse vertical layout</h3>
+      <demo-snippet>
+        <template>
+          <content-card image-src="https://source.unsplash.com/category/technology" vertical-reverse>
+            <div slot="content">
+              <h1>Vertical Reverse</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+            </div>
+          </content-card>
+          <style>
+            content-card[vertical-reverse] {
+              --card-hero-max-height: 300px;
+            }
+          </style>
+        </template>
+      </demo-snippet>
+
+      <h3>custom copy styles</h3>
+      <demo-snippet>
+        <template>
+          <content-card image-src="https://source.unsplash.com/category/nature" vertical>
+            <div slot="content" class="custom">
+              <h1 class="content__title">Custom Styles</h1>
+              <div>
+                <p class="content__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+                culpa reiciendis aliquid delectus eaque. Quisquam quia,
+                impedit ab. Quidem illum vitae iure velit!</p>
+                <a class="custom__link" href="#">See More</a>
+              </div>
+            </div>
+          </content-card>
+          <style>
+            content-card[vertical-reverse] {
+              --card-hero-max-height: 300px;
+            }
+            .custom { display: flex; flex-direction: row; align-items: center; }
+            .content__title { font-family: cursive; color: #757575; }
+            .content__copy { font-family: serif; color: blue; padding: 0 25px; box-sizing: border-box; }
+            .custom__link { display: block; font-family: sans-serif; padding: 0 25px; box-sizing: border-box; text-align: right; }
+          </style>
+        </template>
+      </demo-snippet>
+
+    </div>
+  </body>
+</html>

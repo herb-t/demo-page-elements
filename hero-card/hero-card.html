@@ -1,0 +1,134 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<!--
+`<hero-card>` is a hero element that displays a background image and some copy.
+
+Example:
+
+    <hero-card image-src="../path/to/image.jpg">
+
+      <div slot="hero-content">
+        <h1>Your title</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+        culpa reiciendis aliquid delectus eaque. Quisquam quia,
+        impedit ab. Quidem illum vitae iure velit!</p>
+      </div>
+    </hero-card>
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--content-justify` | flex justify value | center
+`--content-align` | flex align items value | center
+`--hero-layout-min-height` | min-height value for hero section | 500px
+`--content-border-radius` | border-radius value | 4px
+`--content-padding` | padding value for content section of hero | 16px
+`--content-margin` | margin value for content section of hero | 16px
+`--copy-background-color` | hero copy container background color | #fff
+
+@element hero-card
+@demo demo/index.html
+-->
+
+<dom-module id="hero-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --content-justify: center;
+        --content-align: center;
+        --hero-layout-min-height: 500px;
+        --content-border-radius: 4px;
+        --content-padding: 16px;
+        --content-margin: 16px;
+        --copy-background: #fff;
+
+        @apply(--hero-card);
+      }
+
+      .hero-layout {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-align: var(--content-align);
+        -webkit-align-items: var(--content-align);
+        align-items: var(--content-align);
+        -ms-flex-pack: var(--content-justify);
+        -webkit-justify-content: var(--content-justify);
+        justify-content: var(--content-justify);
+
+        min-height: var(--hero-layout-min-height)
+        @apply(--hero-layout);
+      }
+
+      .hero__image {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ccc;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .hero__content {
+        position: relative;
+        z-index: 5;
+        width: 300px;
+        background: var(--copy-background);
+        padding: var(--content-padding);
+        border-radius: var(--content-border-radius);
+        margin: var(--content-margin);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-sizing: border-box;
+
+        @apply(--hero-content);
+      }
+
+    </style>
+    <div class="hero-layout">
+      <div style="background-image: url([[heroImage]])" class="hero__image"></div>
+      <div class="hero__content">
+        <slot name="hero-content"></slot>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `hero-card`
+     * An element for a hero section
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class HeroCard extends Polymer.Element {
+      static get is() { return 'hero-card'; }
+      static get properties() {
+        return {
+          heroImage: {
+            type: String
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HeroCard.is, HeroCard);
+  </script>
+</dom-module>

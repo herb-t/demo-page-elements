@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>hero-card demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../hero-card.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .centered {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        /*hero-card {
+          --content-justify: flex-end;
+          --content-align: flex-end;
+        }*/
+
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="centered">
+      <h3>Basic hero-card demo</h3>
+      <demo-snippet>
+        <template>
+          <hero-card hero-image="https://source.unsplash.com/category/technology" class="align-center">
+            <div slot="hero-content">
+              <h1>Technology</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+              <a href="#">See More</a>
+            </div>
+          </hero-card>
+        </template>
+      </demo-snippet>
+
+      <h3>Basic hero-card demo</h3>
+      <demo-snippet>
+        <template>
+          <hero-card hero-image="https://source.unsplash.com/category/nature" class="align-bottom-right">
+            <div slot="hero-content">
+              <h1>Nature</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+              <a href="#">See More</a>
+            </div>
+          </hero-card>
+          <style>
+            .align-bottom-right {
+              --content-justify: flex-end;
+              --content-align: flex-end;
+            }
+          </style>
+        </template>
+      </demo-snippet>
+
+      <h3>Basic hero-card demo</h3>
+      <demo-snippet>
+        <template>
+          <hero-card hero-image="https://source.unsplash.com/category/buildings" class="align-top-left">
+            <div slot="hero-content">
+              <h1>Buildings</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Omnis, nostrum rerum sunt, cum ipsum dolorem, laudantium
+              culpa reiciendis aliquid delectus eaque. Quisquam quia,
+              impedit ab. Quidem illum vitae iure velit!</p>
+              <a href="#">See More</a>
+            </div>
+          </hero-card>
+          <style>
+            .align-top-left {
+              --content-justify: flex-start;
+              --content-align: flex-start;
+            }
+          </style>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
